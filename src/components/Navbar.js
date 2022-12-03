@@ -1,12 +1,48 @@
+import { useEffect } from 'react';
 import { Links } from "../Router";
 import { Link } from "react-router-dom";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {
+    useAccount,
+    useProvider,
+    useConnect,
+    useSigner
+} from 'wagmi';
+
+import { ethers } from 'ethers';
+
+import {
+    ChainId
+} from "@biconomy/core-types";
+
+import SmartAccount from "@biconomy/smart-account";
 
 const Logo = () => <div>
     <h1>PlayAstra</h1>
 </div>
 
 const Navbar = () => {
+    const { address, isConnected } = useAccount();
+    const { data: signer, isError, isLoading } = useSigner()
+
+    useEffect(() => {
+        const init = async () => {
+            if (signer) {
+                const walletProvider = new ethers.providers.Web3Provider(signer.provider.provider);
+                let options = {
+                    activeNetworkId: ChainId.POLYGON_MAINNET,
+                    supportedNetworksIds: [ChainId.POLYGON_MAINNET, ChainId.POLYGON_MUMBAI]
+                }
+
+                let smartAccount = new SmartAccount(walletProvider, options);
+                smartAccount = await smartAccount.init();
+                console.log(smartAccount)
+            }
+        };
+        init();
+
+    }, [signer]);
+
     const links = () => Links.map((k, i) => (
         <li key={i}><Link to={k.path}>{k.title}</Link></li>
     ));
@@ -22,9 +58,9 @@ const Navbar = () => {
                         {links()}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">
+                <Link to="/" className="btn btn-ghost normal-case text-xl">
                     <Logo />
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
