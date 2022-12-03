@@ -1,8 +1,9 @@
 import { Links } from "../Router";
 import { Link } from "react-router-dom";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Logo = () => <div>
-    <h1>BetiSports</h1>
+    <h1>PlayAstra</h1>
 </div>
 
 const Navbar = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <ConnectButton />
             </div>
         </div>
     )
