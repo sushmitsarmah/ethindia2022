@@ -8,10 +8,13 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
+console.log(process.env.REACT_APP_ALCHEMY_ID);
+
 const { chains, provider } = configureChains(
-  [chain.polygonMumbai, chain.polygon],
+  // [chain.polygonMumbai, chain.polygon],
+  [chain.polygon],
   [
-    // alchemyProvider({ alchemyId: process.env.REACT_APP_ALCHEMY_ID }),
+    alchemyProvider({ apiKey: process.env.REACT_APP_ALCHEMY_ID }),
     publicProvider()
   ]
 );
