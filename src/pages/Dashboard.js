@@ -32,7 +32,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className='flex flex-col items-center bg-gradient-to-b from-darkblue to-darkerblue min-h-screen pt-10'>
+        <div className='flex flex-col items-center bg-gradient-to-b from-darkblue to-darkerblue min-h-screen pt-5'>
             <Navbar />
 
             <h1 className='text-4xl text-white font-bold my-10'>{heading}</h1>
