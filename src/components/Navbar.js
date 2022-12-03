@@ -17,6 +17,9 @@ import {
 
 import SmartAccount from "@biconomy/smart-account";
 
+import web3 from 'web3';
+import DSA from 'dsa-connect';
+
 const Logo = () => <div>
     <h1>PlayAstra</h1>
 </div>
@@ -37,6 +40,10 @@ const Navbar = () => {
                 let smartAccount = new SmartAccount(walletProvider, options);
                 smartAccount = await smartAccount.init();
                 console.log(smartAccount)
+
+                const w = new web3(walletProvider);
+                const dsa = new DSA(w);
+                console.log(dsa)
             }
         };
         init();
