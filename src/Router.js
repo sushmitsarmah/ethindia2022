@@ -8,6 +8,7 @@ import {
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import Sport from './pages/Sport';
 
 export const Links = [
     {
@@ -19,6 +20,12 @@ export const Links = [
         path: "/dashboard",
         title: 'Dashboard',
         element: <Dashboard />,
+        children: [
+            {
+                path: ':sport',
+                element: <Sport />,
+            }
+        ]
     },
 ];
 
@@ -26,9 +33,16 @@ const Router = () => {
     return (
         <Routes>
             {Links.map((k, i) =>
-                <Route key={i} path={k.path} element={k.element} />
+                <Route key={i} path={k.path} element={k.element}>
+                    {k.children ? 
+                        k.children.map((d, ix) =>
+                            <Route key={ix} path={d.path} element={d.element}/>
+                        )
+                        : ''
+                    }
+                </Route>
             )}
-            <Route path="*" element={<Navigate to="/" replace />} replace />
+            {/* <Route path="*" element={<Navigate to="/" replace />} replace /> */}
         </Routes>
     );
 };

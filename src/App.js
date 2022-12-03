@@ -8,11 +8,8 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
-console.log(process.env.REACT_APP_ALCHEMY_ID);
-
 const { chains, provider } = configureChains(
-  // [chain.polygonMumbai, chain.polygon],
-  [chain.polygon],
+  [chain.polygonMumbai, chain.polygon],
   [
     alchemyProvider({ apiKey: process.env.REACT_APP_ALCHEMY_ID }),
     publicProvider()
@@ -35,7 +32,7 @@ function App() {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <div className="App">
-          <Navbar />
+          {/* <Navbar /> */}
           <Router />
         </div>
       </RainbowKitProvider>

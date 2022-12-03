@@ -1,0 +1,25 @@
+{
+  "name": "hardhat-project",
+  "scripts": {
+    "node": "npx hardhat node",
+    "test": "npx hardhat test",
+    "test-parallel": "npx hardhat test --parallel",
+    "test-gas": "REPORT_GAS=true npx hardhat test",
+    "test-gas-parallel": "REPORT_GAS=true npx hardhat test --parallel",
+    "compile": "npx hardhat compile",
+    "hardhat": "npx hardhat",
+    "deploy": "npx hardhat run scripts/deploy.js",
+    "deploy-localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "code-coverage": "npx hardhat coverage",
+    "console": "npx hardhat console"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.3"
+  },
+  "dependencies": {
+    "@hyperlane-xyz/sdk": "^0.5.4-3",
+    "@openzeppelin/contracts": "^4.8.0",
+    "@openzeppelin/contracts-upgradeable": "^4.8.0"
+  }
+}

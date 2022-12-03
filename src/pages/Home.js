@@ -1,6 +1,20 @@
+import { Button } from '@mantine/core';
+import { useEffect } from 'react';
+import { chain } from "wagmi";
+
 const Home = () => {
+
+    const init = async () => {
+    };
+
+    useEffect(() => {
+      init();
+    }, []);
+
     return (
-        <div>Home</div>
+        <div className='flex flex-col items-center'>
+            Home
+        </div>
     );
 };
 
