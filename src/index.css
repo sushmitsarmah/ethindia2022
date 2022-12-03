@@ -2,9 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
 @font-face {
     font-family: CircularStd;
     src: url("assets/fonts/circular_std.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Basier Circle Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Basier Circle Regular'), url('assets/fonts/basier-square/BasierCircle-Regular.woff') format('woff');
+}
+    
+
+@font-face {
+    font-family: 'Basier Square Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Basier Square Regular'), url('assets/fonts/basier-square/BasierSquare-Regular.woff') format('woff');
 }
 
 body {

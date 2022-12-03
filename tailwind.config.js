@@ -10,6 +10,11 @@ module.exports = {
         darkblue: '#2E2F62',
         darkerblue: '#1D1E42',
         darkestblue: '#0E0E2F',
+      },
+      fontFamily: {
+        inter: 'Inter, sans-serif',
+        circularstd: 'CircularStd, serif',
+        basier: 'Basier Square Regular'
       }
     },
   },
