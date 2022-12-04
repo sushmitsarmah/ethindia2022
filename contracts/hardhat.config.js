@@ -25,14 +25,22 @@ module.exports = {
       polygon_mumbai: process.env.MUMBAISCAN_API_KEY,
       polygon_mainnet: process.env.POLYGONSCAN_API_KEY
     }
-  },  
+  },
   solidity: {
-    version: "0.8.17",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
+    compilers: [
+      {
+        version: "0.7.6"
+      },
+      {
+        version: "0.8.17",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        }
       }
-    }
+    ]
+
   }
 };

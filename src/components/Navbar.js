@@ -6,7 +6,9 @@ import {
     useAccount,
     useProvider,
     useConnect,
-    useSigner
+    useSigner,
+    // chain,
+    useNetwork
 } from 'wagmi';
 
 import { ethers } from 'ethers';
@@ -27,14 +29,17 @@ const Logo = () => <div>
 const Navbar = () => {
     const { address, isConnected } = useAccount();
     const { data: signer, isError, isLoading } = useSigner()
+    const { chain, chains } = useNetwork()
+
+    console.log(chain, chains)
 
     useEffect(() => {
         const init = async () => {
             if (signer) {
                 const walletProvider = new ethers.providers.Web3Provider(signer.provider.provider);
                 let options = {
-                    activeNetworkId: ChainId.POLYGON_MAINNET,
-                    supportedNetworksIds: [ChainId.POLYGON_MAINNET, ChainId.POLYGON_MUMBAI]
+                    activeNetworkId: chain.id,
+                    supportedNetworksIds: chains.map(k => k.id)
                 }
 
                 let smartAccount = new SmartAccount(walletProvider, options);
@@ -42,8 +47,10 @@ const Navbar = () => {
                 console.log(smartAccount)
 
                 const w = new web3(walletProvider);
-                const dsa = new DSA(w);
-                console.log(dsa)
+                console.log(w)
+                const dsa = new DSA(w, chain.id);
+                // await dsa.build();
+                // console.log(dsa)
             }
         };
         init();

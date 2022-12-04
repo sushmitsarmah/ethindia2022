@@ -2,6 +2,7 @@ import { Button } from '@mantine/core';
 import { useEffect } from 'react';
 import { chain } from "wagmi";
 import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 
 import Hero from '../assets/hero.png';
 import HowItWorks from '../assets/howitworks.png';
@@ -27,15 +28,19 @@ const Home = () => {
                         PlayAstra is a decentralised media platform that provides equal opportunities for everyone to be a part of the game and win!
                         The Decentralised Quizes are for the Community, By the Community!
                     </p>
+                    <div>
+                        <Link to="/dashboard" className='btn bg-yellow hover:bg-red rounded-3xl font-basier'>Play Now</Link>
+                        <a href="#howitworks" className='btn btn-ghost text-white font-basier'>Learn More</a>
+                    </div>
                 </div>
                 <div className='w-1/2'>
                     <img src={Hero}/>
                 </div>
             </div>
 
-            <img src={SideDeco} className="absolute left-0 top-1/2" />
+            <img src={SideDeco} className="h-[400px] absolute left-0 top-1/2 mt-40" />
 
-            <div className='flex flex-col p-10'>
+            <div className='flex flex-col p-10' id="howitworks">
                 <img src={HowItWorks}/>
             </div>
         </div>
