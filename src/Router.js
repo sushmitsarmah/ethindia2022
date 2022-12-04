@@ -9,12 +9,18 @@ import {
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Sport from './pages/Sport';
+import LeaderBoard from './pages/LeaderBoard';
 
 export const Links = [
     {
         path: "/",
         title: 'Home',
         element: <Home />,
+    },
+    {
+        path: "/leaderboard",
+        title: 'Leaderboard',
+        element: <LeaderBoard />,
     },
     {
         path: "/dashboard",
