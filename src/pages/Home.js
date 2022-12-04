@@ -21,7 +21,7 @@ const Home = () => {
         <div className='flex flex-col items-center bg-gradient-to-b from-darkblue to-darkerblue min-h-screen pt-5'>
             <Navbar />
 
-            <div className='flex flex-row justify-between p-[30px]'>
+            <div className='flex flex-row justify-between items-center p-[30px] z-10'>
                 <div className='w-1/2 flex flex-col gap-10'>
                     <h1 className='text-7xl font-bold text-white font-inter'>Test Your Knowledge & Earn!</h1>
                     <p className='text-white text-xl opacity-60 font-basier'>
@@ -38,7 +38,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <img src={SideDeco} className="h-[400px] absolute left-0 top-1/2 mt-40" />
+            <img src={SideDeco} className="h-[500px] absolute left-0 top-1/2 mt-40 z-0" />
 
             <div className='flex flex-col p-10' id="howitworks">
                 <img src={HowItWorks}/>
