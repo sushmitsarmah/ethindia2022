@@ -10,10 +10,12 @@ module.exports = {
     hardhat: {
     },
     polygon_mumbai: {
+      networkId: 80001,
       url: "https://rpc-mumbai.maticvigil.com",
       accounts: [process.env.PRIVATE_KEY]
     },
     polygon_mainnet: {
+      networkId: 137,
       url: "https://polygon-rpc.com",
       accounts: [process.env.PRIVATE_KEY]
     }
